@@ -46,6 +46,10 @@ $('#bntLnkHist').click(function () {
     location.href = " historico.html"
 })
 
+//Função de ir para home
+$('#bntLnkVoltar').click(function () {
+    location.href = " index.html"
+})
 
 let persistirNoWebStorage = function (altura, peso, resultado) {
 
