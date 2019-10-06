@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+        integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+
+    <!-- icones -->
+    <link rel="apple-touch-icon" sizes="57x57" href="assets/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="assets/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="assets/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="assets/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="assets/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="assets/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="assets/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="assets/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="manifest" href="assets/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="assets/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <script type="text/javascript" language="javascript" src=jquery-3.4.1.min.js></script>
+    <script src="./app.js"></script>
+
+    <!-- referencia para o datatables-->
+    <link rel="stylesheet" type="text/css" href="datatables/DataTables-1.10.20/css/dataTables.bootstrap4.min.css" />
+    <link rel="stylesheet" type="text/css" href="datatables/Responsive-2.2.3/css/responsive.bootstrap4.min.css" />
+
+    <script type="text/javascript" src="datatables/DataTables-1.10.20/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="datatables/DataTables-1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script type="text/javascript" src="datatables/Responsive-2.2.3/js/dataTables.responsive.min.js"></script>
+    <script type="text/javascript" src="datatables/Responsive-2.2.3/js/responsive.bootstrap4.min.js"></script>
+
+    <title>Histórico de IMC</title>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card border-primary  mt-3 text-center">
+            <div class=" card-header bg-info mb-3">
+                <h3 class="card-title">Histórico</h3>
+            </div>
+            <!--Botao Histórico -->
+
+            <div class="card-body">
+
+
+                <table class=" table table-striped table-bordered table-condensed table-hover" id='tabelaHistorico'>
+
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Peso</th>
+                            <th>Altura</th>
+                            <th>Resultado</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+        </div>
+    </div>
+</body>
+
+    <script>
+    //This is the " Offline copy of pages" service worker 
+    //Add this below content to your HTML page, or add the js file to your page at the very top to register service worker 
+    if (navigator.serviceWorker.controller) {
+        console.log('[PWA Builder] active service worker found, no need to register')
+    } else {
+        //Register the ServiceWorker
+        navigator.serviceWorker.register('pwabuilder-sw.js', { scope: './' }).then(function (reg) {
+            console.log('Service worker has been registered for scope:' + reg.scope);
+        });
+    } </script>
+
+<script>
+    window.onload = function () {
+        preencheTabelaHistorico();
+        formatarDataTable();
+    }
+
+    function VoltarHome() {
+        location.href = " index.html"
+    }
+</script>
+
+</html>
